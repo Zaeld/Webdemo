@@ -40,9 +40,12 @@
 	</nav>
 		<div class="container">
 		<div class="text-center">
+		<div class="row">
 		<c:out value="${client}"></c:out>
+		<p class="col"><a class="btn btn-success" href="ModifierClient?idClient=${client.getIdClient()}"><span class="glyphicon glyphicon-list"></span>Modifier Client</a>
+      <p class="col"><a class="btn btn-danger" href="SupprimerClient?idClient=${client.getIdClient()}"><span class="glyphicon glyphicon-list"></span>Supprimer Client</a>
 </div>
 </div>
-
+</div>
 </body>
 </html>

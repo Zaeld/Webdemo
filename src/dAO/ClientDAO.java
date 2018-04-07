@@ -16,7 +16,7 @@ public class ClientDAO {
 		Statement stmt = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection maConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdd4", "root", "");
+			Connection maConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdd4", "root", "alex2616");
 			stmt = maConnection.createStatement();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -15,16 +15,16 @@ import domaine.Client;
 import service.ClientService;
 
 /**
- * Servlet implementation class SelectionnerClient
+ * Servlet implementation class ModifierClient
  */
-@WebServlet("/SelectionnerClient")
-public class SelectionnerClient extends HttpServlet {
+@WebServlet("/ModifierClient")
+public class ModifierClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectionnerClient() {
+    public ModifierClient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,21 +39,15 @@ public class SelectionnerClient extends HttpServlet {
 		Client client = new Client();
 
 		String a =request.getParameter("idClient");
-		String b=request.getParameter("boolean");
 		int idClient = Integer.parseInt(a); 
 		
 		client=clientService.getClient(dao, idClient, client);
 		
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("client", client);
-		RequestDispatcher dispatcher;
-	if (b=="o")
-			dispatcher = request.getRequestDispatcher("client.jsp");
-		else 
-			dispatcher=request.getRequestDispatcher("ModifierClient.html");
-		
-	dispatcher.forward(request, response);
-		
+		RequestDispatcher dispatcher=request.getRequestDispatcher("client.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 	/**

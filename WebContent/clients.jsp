@@ -48,7 +48,7 @@
 					<tr>
 						<th scope="col">Nom</th>
 						<th scope="col">Prenom</th>
-						<th scope="col">Opérations</th>
+						<th class="row">Opérations</th>
 
 					</tr>
 				</thead>
@@ -57,7 +57,11 @@
 					<tr>
 						<td><c:out value="${client.getNom()}"></c:out></td>
 						<td><c:out value="${client.getPrenom()}"></c:out></td>
-						<td>          <p><a class="btn btn-outline-primary" href="SelectionnerClient?idClient=${client.getIdClient()}"><span class="glyphicon glyphicon-list"></span>Afficher Client</a>
+						<td class="row">          <p class="col-4"><a class="btn btn-outline-primary" href="SelectionnerClient?idClient=${client.getIdClient()}&boolean='afficher'"><span class="glyphicon glyphicon-list"></span>Afficher Client</a>
+      <p class="col-4"><a class="btn btn-success" href="SelectionnerClient?idClient=${client.getIdClient()}&boolean='modifier'"><span class="glyphicon glyphicon-list"></span>Modifier Client</a>
+      <p class="col-4"><a class="btn btn-danger" href="SupprimerClient?idClient=${client.getIdClient()}"><span class="glyphicon glyphicon-list"></span>Supprimer Client</a>
+
+
 </td>
 						
 					</tr>

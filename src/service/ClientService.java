@@ -24,11 +24,9 @@ public class ClientService {
 		return dao.updateClient(client);
 	}
 
-	public String deleteClient(ClientDAO dao, Client client) {
-		if (dao.deleteClient(client))
-			return "Le client a été supprimé avec succès";
-		else
-			return "Le client ne peut pas être supprimé";
+	public boolean deleteClient(ClientDAO dao, Client client) {
+	
+			return dao.deleteClient(client);
 	}
 
 	public List getAll() {

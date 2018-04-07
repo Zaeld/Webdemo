@@ -15,16 +15,16 @@ import domaine.Client;
 import service.ClientService;
 
 /**
- * Servlet implementation class SelectionnerClient
+ * Servlet implementation class SupprimerClient
  */
-@WebServlet("/SelectionnerClient")
-public class SelectionnerClient extends HttpServlet {
+@WebServlet("/SupprimerClient")
+public class SupprimerClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectionnerClient() {
+    public SupprimerClient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,21 +39,18 @@ public class SelectionnerClient extends HttpServlet {
 		Client client = new Client();
 
 		String a =request.getParameter("idClient");
-		String b=request.getParameter("boolean");
 		int idClient = Integer.parseInt(a); 
 		
 		client=clientService.getClient(dao, idClient, client);
 		
-		HttpSession maSession = request.getSession();
-		maSession.setAttribute("client", client);
-		RequestDispatcher dispatcher;
-	if (b=="o")
-			dispatcher = request.getRequestDispatcher("client.jsp");
+			RequestDispatcher dispatcher;
+		
+	if (clientService.deleteClient(dao, client))
+			dispatcher = request.getRequestDispatcher("OperationWorks.html");
 		else 
-			dispatcher=request.getRequestDispatcher("ModifierClient.html");
+			dispatcher = request.getRequestDispatcher("OperationFail.html");
 		
 	dispatcher.forward(request, response);
-		
 	}
 
 	/**
